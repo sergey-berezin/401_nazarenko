@@ -48,7 +48,7 @@ namespace Practicum_1
                 var emotions = Softmax(results.First(v => v.Name == "Plus692_Output_0").AsEnumerable<float>().ToArray());
 
                 string[] keys = { "neutral", "happiness", "surprise", "sadness", "anger", "disgust", "fear", "contempt" };
-                Sort(emotions, keys);
+                Array.Sort(emotions, keys);
 
                 var tupleList = new (String Name, float Value)[emotions.Length];
 
@@ -93,25 +93,6 @@ namespace Practicum_1
             var exps = z.Select(x => Math.Exp(x)).ToArray();
             var sum = exps.Sum();
             return exps.Select(x => (float)(x / sum)).ToArray();
-        }
-
-        private void Sort(in float[] emotions, in string[] keys)
-        {
-            for (int i = 0; i < emotions.Length; i++)
-            {
-                for (int j = 0; j < emotions.Length - i - 1; j++)
-                {
-                    if (emotions[j] < emotions[j + 1])
-                    {
-                        string temp_str = keys[j];
-                        float temp_float = emotions[j];
-                        emotions[j] = emotions[j + 1];
-                        emotions[j + 1] = temp_float;
-                        keys[j] = keys[j + 1];
-                        keys[j + 1] = temp_str;
-                    }
-                }
-            }
         }
     }
 }
