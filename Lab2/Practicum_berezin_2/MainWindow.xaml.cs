@@ -19,16 +19,21 @@ namespace Practicum_berezin_2
         private CancellationToken token;
         private Emotion_detector detector;
 
-        private class Node
+
+        public class Node
         {
-            public Node(string name)
+
+            public string Descr { get; set;}
+
+            public string Path {get; set;}
+ 
+            public Node(string path)
             {
-                this.Name = name;
-                this.Emotions = new ObservableCollection<Node>();
+                this.Path = path;
+                this.Descr = "   Distribution:\n";
             }
-            public string Name { get; set; }
-            public ObservableCollection<Node> Emotions { get; set; }
         }
+
 
         private ObservableCollection<Node> Neutral;
         private ObservableCollection<Node> Happiness;
@@ -113,17 +118,19 @@ namespace Practicum_berezin_2
             return null;
         }
 
-        private void Emotions_fill(in ObservableCollection<Node> Emotions, in Dictionary<string, float> dict)
+        private void Emotions_fill(in Node Node, in Dictionary<string, float> dict)
         {
             foreach (KeyValuePair<string, float> entry in dict)
             {
-                string str = ($"{entry.Key}: {entry.Value}");
-                Emotions.Add(new Node(str));
+                string str = ($" {entry.Key}: {entry.Value}");
+                Node.Descr += str + "\n";
             }
         }
 
         private async void Start_Calc()
         {
+            Button_Calc.IsEnabled = false;
+            Button_Load.IsEnabled = false;
 
             pBar.Minimum = 0;
             pBar.Maximum = list_full_paths.Count - 1;
@@ -154,57 +161,57 @@ namespace Practicum_berezin_2
                 {
                     case "neutral":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Neutral.Add(node);
                             break;
                         }
                     case "happiness":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Happiness.Add(node);
                             break;
                         }
                     case "surprise":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Surprise.Add(node);
                             break;
                         }
                     case "sadness":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Sadness.Add(node);
                             break;
                         }
                     case "anger":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Anger.Add(node);
                             break;
                         }
                     case "disgust":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Disgust.Add(node);
                             break;
                         }
                     case "fear":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Fear.Add(node);
                             break;
                         }
                     case "contempt":
                         {
-                            node = new Node(list_names[i]);
-                            Emotions_fill(node.Emotions, emotions);
+                            node = new Node(list_full_paths[i]);
+                            Emotions_fill(node, emotions);
                             Contempt.Add(node);
                             break;
                         }
@@ -219,11 +226,18 @@ namespace Practicum_berezin_2
             Tree_Surprise.ItemsSource = Surprise;
             Tree_Anger.ItemsSource = Anger;
 
+            Button_Calc.IsEnabled = true;
+            Button_Load.IsEnabled = true;
         }
 
         private void Button_Click_Stop(object sender, RoutedEventArgs e)
         {
             cancelTokenSource.Cancel();
+            pBar.Value = 0;
+            Button_Calc.IsEnabled = true;
+            Button_Load.IsEnabled = true;
+            cancelTokenSource = new CancellationTokenSource();
+            token = cancelTokenSource.Token;
         }
     }
 }

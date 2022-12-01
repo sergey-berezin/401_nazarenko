@@ -10,110 +10,167 @@
         <Grid Name="Grid_Neutral" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="200">
             <Label Content="Neutral" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="32" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2" RenderTransformOrigin="0.552,1.892"/>
 
-            <TreeView x:Name="Tree_Neutral" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Neutral" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
+        
         <Grid Name="Grid_Happiness" HorizontalAlignment="Left" Height="225" Margin="200,0,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Happiness" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
 
-            <TreeView x:Name="Tree_Happiness" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Happiness" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
         <Grid Name="Grid_Surprise" HorizontalAlignment="Left" Height="225" Margin="400,0,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Surprise" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
 
-            <TreeView x:Name="Tree_Surprise" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Surprise" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
         <Grid Name="Grid_Sadness" HorizontalAlignment="Left" Height="225" Margin="600,0,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Sadness" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
 
-            <TreeView x:Name="Tree_Sadness" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Sadness" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
         <Grid Name="Grid_Anger" HorizontalAlignment="Left" Height="225" Margin="0,225,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Anger" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
 
-            <TreeView x:Name="Tree_Anger" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Anger" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
         <Grid Name="Grid_Disgust" HorizontalAlignment="Left" Height="225" Margin="200,225,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Disgust" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
 
-            <TreeView x:Name="Tree_Disgust" Height="194" VerticalAlignment="Top" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Disgust" Height="194" VerticalAlignment="Top" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
         <Grid Name="Grid_Fear" HorizontalAlignment="Left" Height="225" Margin="400,225,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Fear" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
 
-            <TreeView x:Name="Tree_Fear" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Fear" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
         <Grid Name="Grid_Contempt" HorizontalAlignment="Left" Height="225" Margin="600,225,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Contempt" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
 
-            <TreeView x:Name="Tree_Contempt" Margin="0,31,0,0">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Emotions}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <ListView x:Name="Tree_Contempt" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image Width="200" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
 
-        <Button Content="Загрузить изображения" HorizontalAlignment="Left" Height="34" Margin="827,91,0,0" VerticalAlignment="Top" Width="148" Click="Button_Load_Images" />
+        <Button Name="Button_Load" Content="Загрузить изображения" HorizontalAlignment="Left" Height="34" Margin="827,91,0,0" VerticalAlignment="Top" Width="148" Click="Button_Load_Images" />
         <Button Content="Прервать вычисления" HorizontalAlignment="Left" Height="34" Margin="827,169,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click_Stop" />
-        <Button Content="Начать вычисления" HorizontalAlignment="Left" Height="34" Margin="827,130,0,0" VerticalAlignment="Top" Width="148" Click="Button_Start_Calc" />
+        <Button Name="Button_Calc" Content="Начать вычисления" HorizontalAlignment="Left" Height="34" Margin="827,130,0,0" VerticalAlignment="Top" Width="148" Click="Button_Start_Calc" />
 
         <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="20" Margin="827,270,0,0" VerticalAlignment="Top" Width="148"/>
         <Label Content="ProggressBar:" HorizontalAlignment="Left" Margin="827,227,0,0" VerticalAlignment="Top" Width="94"/>
