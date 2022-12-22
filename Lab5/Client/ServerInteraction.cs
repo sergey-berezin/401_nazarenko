@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Contracts;
 using Newtonsoft.Json;
+using Polly;
 
 namespace Client
 {
@@ -21,83 +22,46 @@ namespace Client
             connetion = "https://localhost:7156";
         }
 
-        /*
-        async public Task<Image?> GetImageFromServer(int id)
-        {
-            var response = await Client.GetAsync($"{connetion}/images/{id}");
-            for (int i = 0; i < 5 && response.StatusCode != System.Net.HttpStatusCode.OK; ++i)
-            {
-                response = await Client.GetAsync($"{connetion}/images/{id}");
-            }
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new Exception($"Failed to get image from \"{connetion}/images/{id}\" in {5} attempts");
-            }
-            Image? image = JsonConvert.DeserializeObject<Image?>(response.Content.ReadAsStringAsync().Result);
-            return image;
-        }*/
-
         async public Task<int?> PostImageToServer(Image_post img)
         {
+
+            var jitterer = new Random();
+            var retryPolicy = Policy
+                .Handle<HttpRequestException>()
+                .WaitAndRetryAsync(5,
+                    retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                                  + TimeSpan.FromMilliseconds(jitterer.Next(0, 1000)));
+
             var SerializedData = new StringContent(JsonConvert.SerializeObject(img), Encoding.UTF8, "application/json");
-            var response =  await Client.PostAsync($"{connetion}/images", SerializedData);
-            for (int i = 0; i < 5 && response.StatusCode != System.Net.HttpStatusCode.OK; ++i)
-            {
-                response = await Client.PostAsync($"{connetion}/images", SerializedData);
-            }
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new Exception($"Failed to post image to \"{connetion}/images\" in {5} attempts");
-            }
-            string responseString = response.Content.ReadAsStringAsync().Result;
+
+            var result = await retryPolicy.ExecuteAsync(async () => {
+                var response = await Client.PostAsync($"{connetion}/images", SerializedData);
+                return response;
+            });
+
+            string responseString = result.Content.ReadAsStringAsync().Result;
             return Int32.Parse(responseString);
         }
 
-        
+
         async public Task<List<List<Image_get>>> GetArraysFromServer()
         {
-            var response = await Client.GetAsync($"{connetion}/images");
-            for (int i = 0; i < 5 && response.StatusCode != System.Net.HttpStatusCode.OK; ++i)
-            {
-                response = await Client.GetAsync($"{connetion}/images");
-            }
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new Exception($"Failed to get id's from \"{connetion}/images\" in {5} attempts");
-            }
-            List<List<Image_get>> ids = JsonConvert.DeserializeObject<List<List<Image_get>>>(response.Content.ReadAsStringAsync().Result);
+            var jitterer = new Random();
+            var retryPolicy = Policy
+                .Handle<HttpRequestException>()
+                .WaitAndRetryAsync(5,
+                    retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                                  + TimeSpan.FromMilliseconds(jitterer.Next(0, 1000)));
+
+
+            var result = await retryPolicy.ExecuteAsync(async () => {
+                var response = await Client.GetAsync($"{connetion}/images");
+                return response;
+            });
+
+            List<List<Image_get>> ids = JsonConvert.DeserializeObject<List<List<Image_get>>>(result.Content.ReadAsStringAsync().Result);
             return ids;
         }
-        
-
-        /*
-        async public Task DeleteAllServer()
-        {
-            var response = await Client.DeleteAsync($"{connetion}/images");
-            for (int i = 0; i < 5 && response.StatusCode != System.Net.HttpStatusCode.OK; ++i)
-            {
-                response = await Client.DeleteAsync($"{connetion}/images");
-            }
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new Exception($"Failed to delete images from \"{connetion}/images\" in {5} attempts");
-            }
-        }*/
-        
-        /*
-        async public Task DeleteImageServer(int id)
-        {
-            var response  = await Client.DeleteAsync($"{connetion}/images/{id}");
-            for (int i = 0; i < 5 && response.StatusCode != System.Net.HttpStatusCode.OK; ++i)
-            {
-                response = response = await Client.DeleteAsync($"{connetion}/images/{id}");
-            }
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new Exception($"Failed to delete an image from \"{connetion}/images/{id}\" in {5} attempts");
-            }
-        }
-        */
 
     }
 }
