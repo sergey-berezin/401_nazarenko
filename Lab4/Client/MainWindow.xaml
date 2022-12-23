@@ -1,0 +1,151 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="465" Width="1050">
+
+
+    <Grid>
+        <Grid Name="Grid_Neutral" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="200">
+            <Label Content="Neutral" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="32" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2" RenderTransformOrigin="0.552,1.892"/>
+
+            <ListView x:Name="Tree_Neutral" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+
+        <Grid Name="Grid_Happiness" HorizontalAlignment="Left" Height="225" Margin="200,0,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Happiness" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+
+            <ListView x:Name="Tree_Happiness" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <Grid Name="Grid_Surprise" HorizontalAlignment="Left" Height="225" Margin="400,0,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Surprise" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+
+            <ListView x:Name="Tree_Surprise" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <Grid Name="Grid_Sadness" HorizontalAlignment="Left" Height="225" Margin="600,0,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Sadness" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+
+            <ListView x:Name="Tree_Sadness" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <Grid Name="Grid_Anger" HorizontalAlignment="Left" Height="225" Margin="0,225,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Anger" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+
+            <ListView x:Name="Tree_Anger" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <Grid Name="Grid_Disgust" HorizontalAlignment="Left" Height="225" Margin="200,225,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Disgust" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+
+            <ListView x:Name="Tree_Disgust" Height="194" VerticalAlignment="Top" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <Grid Name="Grid_Fear" HorizontalAlignment="Left" Height="225" Margin="400,225,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Fear" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+
+            <ListView x:Name="Tree_Fear" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <Grid Name="Grid_Contempt" HorizontalAlignment="Left" Height="225" Margin="600,225,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Contempt" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  Height="31" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="Black" Background="#FF12FFCE" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+
+            <ListView x:Name="Tree_Contempt" Margin="0,31,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Image HorizontalAlignment="Center" Source="{Binding RawData}" Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Descr}" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="20" Margin="827,318,0,0" VerticalAlignment="Top" Width="148"/>
+        <Label Content="ProggressBar:" HorizontalAlignment="Left" Margin="854,276,0,0" VerticalAlignment="Top" Width="94"/>
+
+        <Button Name="Button_Load" Content="Загрузить изображения" HorizontalAlignment="Left" Height="34" Margin="818,70,0,0" VerticalAlignment="Top" Width="166" Click="Button_Load_Images" />
+        <Button Name ="Button_Delete_DB" Content="Удалить все данные" HorizontalAlignment="Left" Margin="818,178,0,0" VerticalAlignment="Top" Height="34" Width="166" Click="Button_Delete_All"/>
+        <Button Name ="Button_Delete_Selected" Content="Удалить выбранный элемент" HorizontalAlignment="Left" Margin="818,124,0,0" VerticalAlignment="Top" Height="34" Width="166" Click="Button_Click_delete"/>
+        <Button Name ="Button_Stop_Load" Content="Прервать" HorizontalAlignment="Left" Height="34" Margin="818,225,0,0" VerticalAlignment="Top" Width="166" Click="Button_Stop"/>
+
+    </Grid>
+
+</Window>

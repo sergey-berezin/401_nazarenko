@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{127FEF65-0111-45AD-9E38-5F9792934A39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{09651D47-067B-42C9-8C33-AE857F79E0DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{0AADD720-3949-43EC-A57E-88B6EEFD56BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{127FEF65-0111-45AD-9E38-5F9792934A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127FEF65-0111-45AD-9E38-5F9792934A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127FEF65-0111-45AD-9E38-5F9792934A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127FEF65-0111-45AD-9E38-5F9792934A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09651D47-067B-42C9-8C33-AE857F79E0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09651D47-067B-42C9-8C33-AE857F79E0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09651D47-067B-42C9-8C33-AE857F79E0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09651D47-067B-42C9-8C33-AE857F79E0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AADD720-3949-43EC-A57E-88B6EEFD56BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AADD720-3949-43EC-A57E-88B6EEFD56BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AADD720-3949-43EC-A57E-88B6EEFD56BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AADD720-3949-43EC-A57E-88B6EEFD56BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4AB5CEB-732B-485E-84DE-CA73D3B77802}
+	EndGlobalSection
+EndGlobal
