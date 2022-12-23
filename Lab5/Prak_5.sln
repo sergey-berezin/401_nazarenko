@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{075CF7E7-9761-43E9-BA9F-825B4D975635}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{D5C83FB5-5F1C-4FF8-BDD0-584A54967966}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{79DA1785-0FC4-4D14-945C-93D166B1DF84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{40BAB1EF-730F-4D46-8588-FACEAC2F77B8}"
+	ProjectSection(SolutionItems) = preProject
+		Practicum1.dll = Practicum1.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D50F46A-2B65-4F89-938B-2205F279039A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web_console", "Web_console", "{3B9FCF93-3ABE-48DA-90AD-9B75116FBB2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{3465286C-B0F2-4BB9-9CF2-9B62A4DC0632}"
+	ProjectSection(SolutionItems) = preProject
+		Test_images\1.jpg = Test_images\1.jpg
+		Test_images\10.jpg = Test_images\10.jpg
+		Test_images\11.jpg = Test_images\11.jpg
+		Test_images\12.jpg = Test_images\12.jpg
+		Test_images\13.jpg = Test_images\13.jpg
+		Test_images\14.jpg = Test_images\14.jpg
+		Test_images\15.jpg = Test_images\15.jpg
+		Test_images\16.jpg = Test_images\16.jpg
+		Test_images\17.jpg = Test_images\17.jpg
+		Test_images\18.jpg = Test_images\18.jpg
+		Test_images\2.jpg = Test_images\2.jpg
+		Test_images\3.jpg = Test_images\3.jpg
+		Test_images\4.jpg = Test_images\4.jpg
+		Test_images\5.jpg = Test_images\5.jpg
+		Test_images\6.jpg = Test_images\6.jpg
+		Test_images\7.jpg = Test_images\7.jpg
+		Test_images\8.jpg = Test_images\8.jpg
+		Test_images\9.jpg = Test_images\9.jpg
+		Test_images\q1.jpg = Test_images\q1.jpg
+		Test_images\q2.jpg = Test_images\q2.jpg
+		Test_images\q3.jpg = Test_images\q3.jpg
+		Test_images\q4.jpg = Test_images\q4.jpg
+		Test_images\q5.jpg = Test_images\q5.jpg
+		Test_images\q6.jpg = Test_images\q6.jpg
+		Test_images\q7.jpg = Test_images\q7.jpg
+		Test_images\q8.jpg = Test_images\q8.jpg
+		Test_images\w1.jpg = Test_images\w1.jpg
+		Test_images\w2.jpg = Test_images\w2.jpg
+		Test_images\w3.jpg = Test_images\w3.jpg
+		Test_images\w4.jpg = Test_images\w4.jpg
+		Test_images\w5.jpg = Test_images\w5.jpg
+		Test_images\w6.jpg = Test_images\w6.jpg
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{075CF7E7-9761-43E9-BA9F-825B4D975635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075CF7E7-9761-43E9-BA9F-825B4D975635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075CF7E7-9761-43E9-BA9F-825B4D975635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075CF7E7-9761-43E9-BA9F-825B4D975635}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C83FB5-5F1C-4FF8-BDD0-584A54967966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C83FB5-5F1C-4FF8-BDD0-584A54967966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C83FB5-5F1C-4FF8-BDD0-584A54967966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C83FB5-5F1C-4FF8-BDD0-584A54967966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79DA1785-0FC4-4D14-945C-93D166B1DF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DA1785-0FC4-4D14-945C-93D166B1DF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DA1785-0FC4-4D14-945C-93D166B1DF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DA1785-0FC4-4D14-945C-93D166B1DF84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3465286C-B0F2-4BB9-9CF2-9B62A4DC0632} = {3B9FCF93-3ABE-48DA-90AD-9B75116FBB2A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66BDBE99-4F2C-41B8-B853-8EEEA6C09871}
+	EndGlobalSection
+EndGlobal

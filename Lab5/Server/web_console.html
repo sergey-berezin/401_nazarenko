@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>Практикум 5</title>
+
+    <!--Так как файл небольшого размера, целесообразно внедрить стили и скрипты в код HTML-->
+    <style type="text/css">
+        body {
+            background-color: teal;
+            margin-top: 0px;
+        }
+
+        h3 {
+            color: cornsilk;
+        }
+
+        .title_t {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            background-color: darkgoldenrod;
+        }
+
+        .img-cont {
+            width: 100%;
+            display: flex;
+            margin-bottom: 10px;
+            border-color: blue;
+            justify-content: flex-start;
+        }
+
+        .img-cont_in {
+            background-color: darkgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Шаблон таблицы результатов (скрытый) -->
+    <div id="template_t" style="display: none;">
+        <div id="img_cont_{id}" class="img-cont">
+            <div class="img-cont_in" >
+                <img id="img_{id}" width="300px" src="Test_images\1.jpg">
+                <input type="button" value="УДАЛИТЬ" onclick="send_DELETE({id})">
+            </div>
+            <div id="emo_cont_{id}" style="
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              padding-left: 30px;
+              width: 100%;
+              min-height: 350px;
+              background-color: lavender;
+            ">
+                <strong><label>id: {id}</label></strong><br>
+                <label id="emo_{id}_1">anger: 0.50422955</label><br>
+                <label id="emo_{id}_2">disgust: 0.045101024</label><br>
+                <label id="emo_{id}_3">neutral: 0.35598427</label><br>
+                <label id="emo_{id}_4">surprise: 0.03832584</label><br>
+                <label id="emo_{id}_5">sadness: 0.023213888</label><br>
+                <label id="emo_{id}_6">contempt: 0.01920908</label><br>
+                <label id="emo_{id}_7">happiness: 0.007007434</label><br>
+                <label id="emo_{id}_8">fear: 0.0069289254</label><br>
+            </div>
+        </div>
+    </div>
+
+    <!--Верхнее Меню-->
+    <div style="position: sticky; top: 0; width: 100%; height: fit-content; background-color: cadetblue;">
+        <input type="button" value="Загрузить все изображения" onclick="send_GET()" style="color: darkcyan;" />
+        <input type="button" value="Удалить все изображения" onclick="send_DELETE_ALL()" style="color: brown; " />
+    </div>
+
+    <br />
+    <br />
+
+    <!--РАЗДЕЛЫ ЭМОЦИЙ-->
+    <div>
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Neutral -</h3>
+            </div>
+            <div id="emo_title_1"></div>
+        </div>
+        <br />
+
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Happiness -</h3>
+            </div>
+            <div id="emo_title_2"></div>
+        </div>
+        <br />
+
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Surprise -</h3>
+            </div>
+            <div id="emo_title_3"></div>
+        </div>
+        <br />
+
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Sadness -</h3>
+            </div>
+            <div id="emo_title_4"></div>
+        </div>
+        <br />
+
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Anger -</h3>
+            </div>
+            <div id="emo_title_5"></div>
+        </div>
+        <br />
+
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Disgust -</h3>
+            </div>
+            <div id="emo_title_6"></div>
+        </div>
+        <br />
+
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Fear -</h3>
+            </div>
+            <div id="emo_title_7"></div>
+        </div>
+        <br />
+
+        <div style="width: 580px">
+            <div class="title_t">
+                <h3>- Contempt -</h3>
+            </div>
+            <div id="emo_title_8"></div>
+        </div>
+        <br />
+
+     </div>
+
+
+            <!-- Раздел скриптов. Загрузка скриптов идет после составления DOM, в конце HTML кода -->
+            <script>
+                const htmlString = template_t.innerHTML
+                const server_url = 'https://localhost:7156/images';
+
+                var html_temp = document.createElement('div');
+                html_temp.innerHTML = htmlString.trim();
+                html_temp = html_temp.firstChild;
+
+                // Кнопка "Загрузить все изображения"
+                async function send_GET() {
+                    try { // Используем try, тк fetch.catch не позволяет выйти из субфункции
+                        response = await fetch(server_url, {
+                            method: 'GET',
+                        })
+                    } catch {
+                        alert('Загрузить все изображения.  \nError: Не можем подключится к серверу!');
+                        return;
+                    };
+                    
+
+                    if (!response.ok) {
+                        alert('Загрузить все изображения.  \nError: ' + response.status);
+                        return;
+                    }
+
+                    const string = await response.text();
+                    const json = string === '' ? {} : JSON.parse(string);
+
+                    // Предварительно очищаем контейнер от старых значений
+                    for (emo_title = 1; emo_title <= 8; emo_title++) {
+                        now_parent = document.querySelector('#emo_title_' + emo_title);
+                        now_parent.innerHTML = '';
+                    }
+
+                    // Расставляем значения из json
+                    for (emo_title = 1; emo_title <= 8; emo_title++) {
+                        for (img_i = 0; img_i < json[emo_title - 1].length; img_i++) {
+                            now_json = json[emo_title - 1][img_i];
+
+                            // Клонируем "плашку" с результатом в нужный раздел
+                            now_parent = document.getElementById('emo_title_' + emo_title);
+                            clone = html_temp.cloneNode(true);
+                            now_parent.appendChild(clone);
+
+                            // Создаем уникальные id для текущей "плашки"
+                            now_parent.innerHTML = now_parent.innerHTML.replaceAll(
+                                '{id}',
+                                now_json.id
+                            );
+                            ch = now_parent.lastChild;
+                            document.getElementById('img_' + now_json.id).src =
+                                'data:image/jpeg;base64,' + now_json.base64;
+
+                            // Заполняем вероятности эмоций
+                            for (j = 1; j <= 8; j++) {
+                                document.getElementById('emo_' + now_json.id + '_' + j).innerHTML =
+                                    now_json.emotions[j - 1].emotion_name +
+                                    ': ' +
+                                    now_json.emotions[j - 1].emotion_val;
+                            }
+                        }
+                    }
+                }
+
+                // Загружаем все изображения на открытие страницы
+                send_GET();
+
+                // Кнопка "Удалить все изображения"
+                async function send_DELETE_ALL() {
+                    try { // Используем try, тк fetch.catch не позволяет выйти из субфункции
+                        response = await fetch(server_url, {
+                            method: 'DELETE',
+                        });
+                    } catch {
+                        alert('Удалить все изображения.  \nError: Не можем подключится к серверу!');
+                        return;
+                    };
+
+                    string = await response.text();
+                    if (response.ok) {
+                        // Очищаем контейнер от всех значений
+                        for (emo_title = 1; emo_title <= 8; emo_title++) {
+                            now_parent = document.querySelector('#emo_title_' + emo_title);
+                            now_parent.innerHTML = '';
+                        }
+                    } else {
+                        alert('Удалить все изображения.  \nError: ' + response.status);
+                    }
+                }
+
+                // Кнопка "УДАЛИТЬ" под изображением в блоке
+                async function send_DELETE(id) {
+                    try { // Используем try, тк fetch.catch не позволяет выйти из субфункции
+                        response = await fetch(server_url + '/' + id, {
+                            method: 'DELETE',
+                        });
+                    } catch {
+                        alert('УДАЛИТЬ по id: ' + id + '.  \nError:  Не можем подключится к серверу!');
+                        return;
+                    };
+
+                    string = await response.text();
+                    if (response.ok) {
+                        // Удаляем "плашку" из родительского контейнера эмоций
+                        ch = document.getElementById('img_cont_' + id);
+                        ch.parentNode.removeChild(ch);
+                    } else {
+                        alert('УДАЛИТЬ по id: ' + id + '.  \nError: ' + response.status);
+                    }
+                }
+            </script>
+</body>
+</html>
